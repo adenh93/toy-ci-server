@@ -68,9 +68,7 @@ fn parses_default_settings() {
         title: "Workflow B".to_owned(),
         environment: None,
         caches: None,
-        settings: Settings {
-            logging: LogLevel::default(),
-        },
+        settings: Settings::default(),
         steps: vec![
             StepFormat::Full(Step {
                 name: "Install dependencies".to_owned(),
