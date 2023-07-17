@@ -1,0 +1,14 @@
+title: Workflow B
+
+steps:
+  - name: Install dependencies
+    run: yarn install:ci
+
+  - name: Build
+    run: yarn build
+
+  - name: Test
+    run: yarn test:ci
+
+  - name: Deploy
+    run: yarn deploy

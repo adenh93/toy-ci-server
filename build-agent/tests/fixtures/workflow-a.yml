@@ -1,0 +1,30 @@
+title: Workflow A
+
+environment:
+  FIRST_VAR: first_var_val
+  SECOND_VAR: second_var_val
+
+caches:
+  - name: Cache node_modules
+    path: node_modules/
+    key: yarn.lock
+  
+settings:
+  logging: Verbose 
+
+steps:
+  - name: Install dependencies
+    run: yarn install:ci
+
+  - npm install -g esbuild
+
+  - name: Build
+    run: yarn build
+
+  - name: Test
+    run: yarn test:ci
+
+  - name: Deploy
+    run: |
+      yarn deploy \
+      yarn post:deploy
